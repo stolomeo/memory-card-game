@@ -1,13 +1,17 @@
 import styled from "styled-components";
 import CardContainer from "./CardContainer";
+import Header from "./Header";
 
 type Props = {};
 
 export default function Main({}: Props) {
   return (
-    <MainWrapper>
-      <CardContainer />
-    </MainWrapper>
+    <>
+      <Header />
+      <MainWrapper>
+        <CardContainer />
+      </MainWrapper>
+    </>
   );
 }
 
