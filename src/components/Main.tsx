@@ -1,8 +1,7 @@
-import React from "react";
-import Card from "./Card";
+import CardContainer from "./CardContainer";
 
 type Props = {};
 
 export default function Main({}: Props) {
-  return <Card />;
+  return <CardContainer />;
 }
