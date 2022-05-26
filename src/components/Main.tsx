@@ -1,10 +1,19 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import CardContainer from "./CardContainer";
 import Header from "./Header";
 
-type Props = {};
+export default function Main() {
+  const [pokemon, setPokemon] = useState();
 
-export default function Main({}: Props) {
+  useEffect(() => {
+    (async () => {
+      const response = await fetch("https://pokeapi.co/api/v2/pokemon");
+      const data = response.json();
+      console.log(data);
+    })();
+  }, []);
+
   return (
     <>
       <Header />
