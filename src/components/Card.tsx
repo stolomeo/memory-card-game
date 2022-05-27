@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
-type Props = {};
+type Props = {
+  id?: number;
+  name?: string;
+  sprites?: object;
+};
 
-export default function Card({}: Props) {
+export default function Card({ id, name, sprites }: Props) {
+  console.log({ id, name, sprites });
   return (
     <>
       <CardWrapper>

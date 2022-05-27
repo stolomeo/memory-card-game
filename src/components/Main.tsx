@@ -2,15 +2,14 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import CardContainer from "./CardContainer";
 import Header from "./Header";
+import { createPokemon } from "./utils/createPokemon";
 
 export default function Main() {
-  const [pokemon, setPokemon] = useState();
+  const [pokemon, setPokemon] = useState([{}]);
 
   useEffect(() => {
     (async () => {
-      const response = await fetch("https://pokeapi.co/api/v2/pokemon");
-      const data = response.json();
-      console.log(data);
+      setPokemon(await createPokemon());
     })();
   }, []);
 
@@ -18,7 +17,7 @@ export default function Main() {
     <>
       <Header />
       <MainWrapper>
-        <CardContainer />
+        <CardContainer pokemonList={pokemon} />
       </MainWrapper>
     </>
   );

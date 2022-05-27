@@ -1,12 +1,16 @@
 import styled from "styled-components";
 import Card from "./Card";
 
-export default function CardContainer() {
-  return (
-    <Container>
-      <Card />
-    </Container>
-  );
+type Props = {
+  pokemonList: object[];
+};
+
+export default function CardContainer({ pokemonList }: Props) {
+  const pokemonElements = pokemonList.map((pokemon) => {
+    return <Card {...pokemon} />;
+  });
+
+  return <Container>{pokemonElements}</Container>;
 }
 
 const Container = styled.div`
