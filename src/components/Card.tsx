@@ -1,56 +1,22 @@
 import styled from "styled-components";
 
+type Sprite = {
+  [key: string]: any;
+};
+
 type Props = {
   id?: number;
   name?: string;
-  sprites?: object;
+  sprites?: Sprite;
 };
 
 export default function Card({ id, name, sprites }: Props) {
-  console.log({ id, name, sprites });
+  const imgSource = sprites?.front_default;
   return (
     <>
       <CardWrapper>
-        <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
-          alt=""
-        />
-        <h2>Pokemon</h2>
-      </CardWrapper>
-      <CardWrapper>
-        <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
-          alt=""
-        />
-        <h2>Pokemon</h2>
-      </CardWrapper>
-      <CardWrapper>
-        <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
-          alt=""
-        />
-        <h2>Pokemon</h2>
-      </CardWrapper>
-      <CardWrapper>
-        <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
-          alt=""
-        />
-        <h2>Pokemon</h2>
-      </CardWrapper>
-      <CardWrapper>
-        <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
-          alt=""
-        />
-        <h2>Pokemon</h2>
-      </CardWrapper>
-      <CardWrapper>
-        <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
-          alt=""
-        />
-        <h2>Pokemon</h2>
+        <img src={imgSource} alt="Pokemon Card" />
+        <h2>{name}</h2>
       </CardWrapper>
     </>
   );
