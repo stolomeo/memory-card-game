@@ -6,10 +6,12 @@ import { createPokemon } from "./utils/createPokemon";
 
 export default function Main() {
   const [pokemon, setPokemon] = useState([{}]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     (async () => {
       setPokemon(await createPokemon());
+      setIsLoading(false);
     })();
   }, []);
 
@@ -17,7 +19,8 @@ export default function Main() {
     <>
       <Header />
       <MainWrapper>
-        <CardContainer pokemonList={pokemon} />
+        {isLoading && <h1>Loading..</h1>}
+        {!isLoading && <CardContainer pokemonList={pokemon} />}
       </MainWrapper>
     </>
   );

@@ -14,7 +14,7 @@ export default function Card({ id, name, sprites }: Props) {
   const imgSource = sprites?.front_default;
   return (
     <>
-      <CardWrapper>
+      <CardWrapper key={id}>
         <img src={imgSource} alt="Pokemon Card" />
         <h2>{name}</h2>
       </CardWrapper>

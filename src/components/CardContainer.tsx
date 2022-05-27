@@ -6,13 +6,9 @@ type Props = {
 };
 
 export default function CardContainer({ pokemonList }: Props) {
-  const pokemonElements = !pokemonList ? (
-    <h1>Loading...</h1>
-  ) : (
-    pokemonList.map((pokemon) => {
-      return <Card {...pokemon} />;
-    })
-  );
+  const pokemonElements = pokemonList.map((pokemon) => {
+    return <Card {...pokemon} />;
+  });
 
   return <Container>{pokemonElements}</Container>;
 }
