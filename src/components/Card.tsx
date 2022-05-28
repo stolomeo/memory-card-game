@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { MouseEvent } from "react";
 
 type Sprite = {
   [key: string]: any;
@@ -8,7 +9,7 @@ type Props = {
   id?: number;
   name?: string;
   sprites?: Sprite;
-  handleClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  handleClick: (e: MouseEvent) => void;
 };
 
 export default function Card({ id, name, sprites, handleClick }: Props) {

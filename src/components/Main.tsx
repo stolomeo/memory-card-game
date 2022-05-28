@@ -3,13 +3,14 @@ import styled from "styled-components";
 import CardContainer from "./CardContainer";
 import Header from "./Header";
 import { createPokemon } from "./utils/createPokemon";
-import { shuffleArray } from "./utils/getPokemon";
-
+import { checkForDuplicates, shuffleArray } from "./utils/getPokemon";
+import { MouseEvent } from "react";
 export default function Main() {
   const [pokemon, setPokemon] = useState([{}]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [pokemonSelected, setPokemonSelected] = useState<any[]>([]);
+  const [pokemonSelected, setPokemonSelected] = useState<string[]>([""]);
   const [score, setScore] = useState<number>(0);
+  const [gameOver, setGameOver] = useState<boolean>(false);
 
   useEffect(() => {
     (async () => {
@@ -18,16 +19,22 @@ export default function Main() {
     })();
   }, []);
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleClick = async (e: MouseEvent) => {
     const { id } = e.target as HTMLTextAreaElement;
     setPokemonSelected([...pokemonSelected, id]);
-    setPokemon(shuffleArray(pokemon));
+    setGameOver(checkForDuplicates(pokemonSelected));
+    console.log(gameOver);
+    if (!gameOver) {
+      setPokemon(shuffleArray(pokemon));
+      setScore(score + 1);
+    } else {
+    }
   };
-  console.log(pokemon);
 
   return (
     <>
       <Header />
+      <h1>{score}</h1>
       <MainWrapper>
         {isLoading && <h1>Loading..</h1>}
         {!isLoading && (

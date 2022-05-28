@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import Card from "./Card";
+import { MouseEvent } from "react";
 
 type Props = {
   pokemonList: any[];
-  handleClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  handleClick: (e: MouseEvent) => void;
 };
 
 export default function CardContainer({ pokemonList, handleClick }: Props) {
