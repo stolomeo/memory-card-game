@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import CardContainer from "./Cards/CardContainer";
+import CardContainer from "./Gameboard/";
 import Header from "./Header";
 import { createPokemon } from "../utils";
 import { shuffleArray } from "../utils";
 import { MouseEvent } from "react";
-import Scoreboard from "./Scoreboard";
+import Scoreboard from "./Scoreboard/";
 
 export default function Main() {
   const [pokemon, setPokemon] = useState([{}]);
@@ -17,7 +17,7 @@ export default function Main() {
 
   useEffect(() => {
     (async () => {
-      setPokemon(await createPokemon(6));
+      setPokemon(await createPokemon(9));
       setIsLoading(false);
     })();
   }, []);
