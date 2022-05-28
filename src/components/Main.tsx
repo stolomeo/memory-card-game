@@ -10,7 +10,7 @@ export default function Main() {
 
   useEffect(() => {
     (async () => {
-      setPokemon(await createPokemon());
+      setPokemon(await createPokemon(6));
       setIsLoading(false);
     })();
   }, []);

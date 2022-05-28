@@ -1,16 +1,15 @@
-const getRandomInt = (min: number, max: number) => {
-  return Math.floor(Math.random() * max) + min;
-};
-
-const getRandomUrl = (min: number, max: number) => {
-  const randomInt = getRandomInt(min, max);
-  const randomUrl = `https://pokeapi.co/api/v2/pokemon/${randomInt}`;
+const getRandomUrl = (num: number) => {
+  const randomUrl = `https://pokeapi.co/api/v2/pokemon/${num}`;
   return randomUrl;
 };
 
-export const getPokemon = async (min: number, max: number) => {
-  const url = getRandomUrl(min, max);
+export const getPokemon = async (num: number) => {
+  const url = getRandomUrl(num);
   const response = await fetch(url);
   const { id, name, sprites } = await response.json();
   return { id, name, sprites };
+};
+
+export const shuffleArray = (array: any) => {
+  return [...array].sort(() => Math.random() - 0.5);
 };
