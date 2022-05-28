@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import CardContainer from "./CardContainer";
 import Header from "./Header";
-import { createPokemon } from "./utils/createPokemon";
-import { shuffleArray } from "./utils/getPokemon";
+import { createPokemon } from "./utils/utils";
+import { shuffleArray } from "./utils/utils";
 import { MouseEvent } from "react";
+
 export default function Main() {
   const [pokemon, setPokemon] = useState([{}]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -26,9 +27,12 @@ export default function Main() {
       setGameOver(true);
     } else {
       setScore(score + 1);
-      setPokemonSelected((oldPokemon) => [...oldPokemon, id]);
+      setPokemonSelected([...pokemonSelected, id]);
+      setGameOver(false);
     }
   };
+
+  console.log(gameOver);
 
   const handleClick = async (e: MouseEvent) => {
     const { id } = e.target as HTMLTextAreaElement;
