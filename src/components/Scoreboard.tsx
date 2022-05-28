@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 type Props = {
   currentScore: number;
+  bestScore: number;
 };
 
-export default function Scoreboard({ currentScore }: Props) {
+export default function Scoreboard({ currentScore, bestScore }: Props) {
   return (
     <ScoreboardWrapper>
       <CurrentScore>Current Score: {currentScore}</CurrentScore>
-      <BestScore>Best Score: 4</BestScore>
+      <BestScore>Best Score: {bestScore}</BestScore>
     </ScoreboardWrapper>
   );
 }

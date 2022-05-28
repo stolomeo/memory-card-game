@@ -12,6 +12,7 @@ export default function Main() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [pokemonSelected, setPokemonSelected] = useState<string[]>([""]);
   const [currentScore, setCurrentScore] = useState<number>(0);
+  const [bestScore, setBestScore] = useState<number>(0);
   const [gameOver, setGameOver] = useState<boolean>(false);
 
   useEffect(() => {
@@ -21,27 +22,34 @@ export default function Main() {
     })();
   }, []);
 
-  const playRound = (id: string) => {
+  const handleGame = (id: string) => {
     if (pokemonSelected.includes(id)) {
-      setPokemonSelected([""]);
-      setCurrentScore(0);
-      setGameOver(true);
+      resetGame();
     } else {
-      setCurrentScore(currentScore + 1);
+      const newScore = currentScore + 1;
+      if (newScore > bestScore) setBestScore(newScore);
+      setCurrentScore((prevScore) => prevScore + 1);
       setPokemonSelected([...pokemonSelected, id]);
       setGameOver(false);
     }
   };
 
+  const resetGame = () => {
+    setPokemonSelected([""]);
+    setCurrentScore(0);
+    setGameOver(true);
+  };
+
   const handleClick = async (e: MouseEvent) => {
     const { id } = e.target as HTMLTextAreaElement;
-    playRound(id);
+    handleGame(id);
     setPokemon(shuffleArray(pokemon));
   };
+
   return (
     <>
       <Header />
-      <Scoreboard currentScore={currentScore} />
+      <Scoreboard currentScore={currentScore} bestScore={bestScore} />
       <MainWrapper>
         {isLoading && <h1>Loading..</h1>}
         {!isLoading && (
