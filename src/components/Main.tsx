@@ -3,7 +3,7 @@ import styled from "styled-components";
 import CardContainer from "./CardContainer";
 import Header from "./Header";
 import { createPokemon } from "./utils/createPokemon";
-import { checkForDuplicates, shuffleArray } from "./utils/getPokemon";
+import { shuffleArray } from "./utils/getPokemon";
 import { MouseEvent } from "react";
 export default function Main() {
   const [pokemon, setPokemon] = useState([{}]);
@@ -19,18 +19,22 @@ export default function Main() {
     })();
   }, []);
 
-  const handleClick = async (e: MouseEvent) => {
-    const { id } = e.target as HTMLTextAreaElement;
-    setPokemonSelected([...pokemonSelected, id]);
-    setGameOver(checkForDuplicates(pokemonSelected));
-    console.log(gameOver);
-    if (!gameOver) {
-      setPokemon(shuffleArray(pokemon));
-      setScore(score + 1);
+  const playRound = (id: string) => {
+    if (pokemonSelected.includes(id)) {
+      setPokemonSelected([""]);
+      setScore(0);
+      setGameOver(true);
     } else {
+      setScore(score + 1);
+      setPokemonSelected((oldPokemon) => [...oldPokemon, id]);
     }
   };
 
+  const handleClick = async (e: MouseEvent) => {
+    const { id } = e.target as HTMLTextAreaElement;
+    playRound(id);
+    setPokemon(shuffleArray(pokemon));
+  };
   return (
     <>
       <Header />
