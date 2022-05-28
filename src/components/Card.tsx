@@ -12,10 +12,14 @@ type Props = {
 
 export default function Card({ id, name, sprites }: Props) {
   const imgSource = sprites?.front_default;
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    console.log(e);
+  };
   return (
     <>
-      <CardWrapper key={id}>
-        <img src={imgSource} alt="Pokemon Card" />
+      <CardWrapper onClick={(e) => handleClick(e)}>
+        <img id={id?.toString()} src={imgSource} alt={name} />
         <h2>{name}</h2>
       </CardWrapper>
     </>
@@ -29,4 +33,6 @@ const CardWrapper = styled.div`
   border-radius: 20px;
 `;
 
-const Image = styled.img``;
+const Image = styled.img`
+  cursor: pointer;
+`;

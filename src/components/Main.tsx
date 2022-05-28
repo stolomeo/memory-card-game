@@ -7,6 +7,7 @@ import { createPokemon } from "./utils/createPokemon";
 export default function Main() {
   const [pokemon, setPokemon] = useState([{}]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [pokemonSelected, setPokemonSelected] = useState<string[]>(["0"]);
 
   useEffect(() => {
     (async () => {
