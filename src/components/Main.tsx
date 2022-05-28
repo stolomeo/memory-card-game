@@ -3,6 +3,7 @@ import styled from "styled-components";
 import CardContainer from "./CardContainer";
 import Header from "./Header";
 import { createPokemon } from "./utils/createPokemon";
+import { shuffleArray } from "./utils/getPokemon";
 
 export default function Main() {
   const [pokemon, setPokemon] = useState([{}]);
@@ -17,13 +18,12 @@ export default function Main() {
     })();
   }, []);
 
-  const handleClick = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    id?: string
-  ) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const { id } = e.target as HTMLTextAreaElement;
     setPokemonSelected([...pokemonSelected, id]);
+    setPokemon(shuffleArray(pokemon));
   };
-  console.log(pokemonSelected);
+  console.log(pokemon);
 
   return (
     <>

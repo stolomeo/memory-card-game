@@ -3,10 +3,7 @@ import Card from "./Card";
 
 type Props = {
   pokemonList: any[];
-  handleClick: (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    id?: string
-  ) => void;
+  handleClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 };
 
 export default function CardContainer({ pokemonList, handleClick }: Props) {
