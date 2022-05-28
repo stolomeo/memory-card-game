@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { MouseEvent } from "react";
-import { capitalizeFirstLetter } from "./utils/utils";
+import { capitalizeFirstLetter } from "../../utils";
 
 type Sprite = {
   [key: string]: any;

@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import CardContainer from "./CardContainer";
+import CardContainer from "./Cards/CardContainer";
 import Header from "./Header";
-import { createPokemon } from "./utils/utils";
-import { shuffleArray } from "./utils/utils";
+import { createPokemon } from "../utils";
+import { shuffleArray } from "../utils";
 import { MouseEvent } from "react";
+import Scoreboard from "./Scoreboard";
 
 export default function Main() {
   const [pokemon, setPokemon] = useState([{}]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [pokemonSelected, setPokemonSelected] = useState<string[]>([""]);
-  const [score, setScore] = useState<number>(0);
+  const [currentScore, setCurrentScore] = useState<number>(0);
   const [gameOver, setGameOver] = useState<boolean>(false);
 
   useEffect(() => {
@@ -23,16 +24,14 @@ export default function Main() {
   const playRound = (id: string) => {
     if (pokemonSelected.includes(id)) {
       setPokemonSelected([""]);
-      setScore(0);
+      setCurrentScore(0);
       setGameOver(true);
     } else {
-      setScore(score + 1);
+      setCurrentScore(currentScore + 1);
       setPokemonSelected([...pokemonSelected, id]);
       setGameOver(false);
     }
   };
-
-  console.log(gameOver);
 
   const handleClick = async (e: MouseEvent) => {
     const { id } = e.target as HTMLTextAreaElement;
@@ -42,7 +41,7 @@ export default function Main() {
   return (
     <>
       <Header />
-      <h1>{score}</h1>
+      <Scoreboard currentScore={currentScore} />
       <MainWrapper>
         {isLoading && <h1>Loading..</h1>}
         {!isLoading && (
