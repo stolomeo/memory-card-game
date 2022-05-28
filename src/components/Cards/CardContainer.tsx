@@ -26,4 +26,5 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
+  margin-top: 3rem;
 `;

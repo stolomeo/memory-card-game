@@ -20,7 +20,7 @@ export default function Card({ id, name, sprites, handleClick }: Props) {
     <>
       <CardWrapper onClick={(e) => handleClick(e)}>
         <Image id={id.toString()} src={imgSource} alt={name} />
-        <h2>{capitalizeFirstLetter(name)}</h2>
+        <Text>{capitalizeFirstLetter(name)}</Text>
       </CardWrapper>
     </>
   );
@@ -31,8 +31,15 @@ const CardWrapper = styled.div`
   flex-direction: column;
   width: 150px;
   border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
 `;
 
 const Image = styled.img`
-  cursor: pointer;
+  padding: 0.5rem;
+`;
+
+const Text = styled.h2`
+  text-align: center;
 `;

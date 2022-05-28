@@ -18,6 +18,7 @@ const ScoreboardWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 3rem;
+  margin-top: 3rem;
 `;
 
 const Score = styled.div`
