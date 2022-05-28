@@ -1,9 +1,10 @@
-import { getPokemon } from "./getPokemon";
+import { getPokemon, shuffleArray } from "./getPokemon";
 
-export const createPokemon = async () => {
+export const createPokemon = async (numOfPokemon: number) => {
   const pokemon = [];
-  for (let i = 0; i < 6; i++) {
-    pokemon.push(await getPokemon(1, 12));
+  for (let i = 0; i < numOfPokemon; i++) {
+    pokemon.push(await getPokemon(i + 1));
   }
-  return pokemon;
+  const shuffledPokemon = shuffleArray(pokemon);
+  return shuffledPokemon;
 };
