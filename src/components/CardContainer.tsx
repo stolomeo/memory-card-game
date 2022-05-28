@@ -1,15 +1,23 @@
-import { nanoid } from "nanoid";
 import styled from "styled-components";
 import Card from "./Card";
 
 type Props = {
   pokemonList: any[];
+  handleClick: (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    id?: string
+  ) => void;
 };
 
-export default function CardContainer({ pokemonList }: Props) {
+export default function CardContainer({ pokemonList, handleClick }: Props) {
   const pokemonElements = pokemonList.map((pokemon) => {
     return (
-      <Card id={pokemon.id} name={pokemon.name} sprites={pokemon.sprites} />
+      <Card
+        id={pokemon.id}
+        name={pokemon.name}
+        sprites={pokemon.sprites}
+        handleClick={handleClick}
+      />
     );
   });
 

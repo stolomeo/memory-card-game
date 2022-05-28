@@ -8,18 +8,19 @@ type Props = {
   id?: number;
   name?: string;
   sprites?: Sprite;
+  handleClick: (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    id?: string
+  ) => void;
 };
 
-export default function Card({ id, name, sprites }: Props) {
+export default function Card({ id, name, sprites, handleClick }: Props) {
   const imgSource = sprites?.front_default;
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    console.log(e);
-  };
   return (
     <>
-      <CardWrapper onClick={(e) => handleClick(e)}>
-        <img id={id?.toString()} src={imgSource} alt={name} />
+      <CardWrapper onClick={(e) => handleClick(e, id?.toString())}>
+        <Image id={id?.toString()} src={imgSource} alt={name} />
         <h2>{name}</h2>
       </CardWrapper>
     </>

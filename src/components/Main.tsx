@@ -7,7 +7,8 @@ import { createPokemon } from "./utils/createPokemon";
 export default function Main() {
   const [pokemon, setPokemon] = useState([{}]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [pokemonSelected, setPokemonSelected] = useState<string[]>(["0"]);
+  const [pokemonSelected, setPokemonSelected] = useState<any[]>([]);
+  const [score, setScore] = useState<number>(0);
 
   useEffect(() => {
     (async () => {
@@ -16,12 +17,22 @@ export default function Main() {
     })();
   }, []);
 
+  const handleClick = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    id?: string
+  ) => {
+    setPokemonSelected([...pokemonSelected, id]);
+  };
+  console.log(pokemonSelected);
+
   return (
     <>
       <Header />
       <MainWrapper>
         {isLoading && <h1>Loading..</h1>}
-        {!isLoading && <CardContainer pokemonList={pokemon} />}
+        {!isLoading && (
+          <CardContainer pokemonList={pokemon} handleClick={handleClick} />
+        )}
       </MainWrapper>
     </>
   );
