@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/pokemon-memory/static/js/main.2d48c6fb.js",
+    "main.js": "/pokemon-memory/static/js/main.6c5fb7fb.js",
     "index.html": "/pokemon-memory/index.html",
-    "main.2d48c6fb.js.map": "/pokemon-memory/static/js/main.2d48c6fb.js.map"
+    "main.6c5fb7fb.js.map": "/pokemon-memory/static/js/main.6c5fb7fb.js.map"
   },
   "entrypoints": [
-    "static/js/main.2d48c6fb.js"
+    "static/js/main.6c5fb7fb.js"
   ]
 }
