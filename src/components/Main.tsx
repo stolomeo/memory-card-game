@@ -6,7 +6,7 @@ import { shuffleArray } from "../utils";
 import { MouseEvent } from "react";
 import Scoreboard from "./Scoreboard/";
 import Confetti from "react-confetti";
-import Loading from "./Gameboard/Loading";
+import LoadingBoard from "../LoadingBoard";
 
 export default function Main() {
   const [pokemon, setPokemon] = useState([{}]);
@@ -18,10 +18,10 @@ export default function Main() {
 
   useEffect(() => {
     const fetchPokemon = async () => {
-      setPokemon(await createPokemon(8));
+      setPokemon(await createPokemon(12));
       setIsLoading(false);
     };
-    setTimeout(fetchPokemon, 3000);
+    setTimeout(fetchPokemon, 2000);
   }, []);
 
   const handleGame = (id: string) => {
@@ -48,7 +48,7 @@ export default function Main() {
   };
 
   useEffect(() => {
-    if (currentScore === 8) {
+    if (currentScore === 12) {
       setHasWon(true);
     }
   }, [currentScore]);
@@ -58,7 +58,7 @@ export default function Main() {
       {hasWon && <Confetti />}
       <Scoreboard currentScore={currentScore} bestScore={bestScore} />
       <MainWrapper>
-        {isLoading && <Loading />}
+        {isLoading && <LoadingBoard />}
         {!isLoading && (
           <Gameboard pokemonList={pokemon} handleClick={handleClick} />
         )}

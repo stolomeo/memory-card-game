@@ -26,7 +26,7 @@ export default function Card({ id, name, sprites, handleClick }: Props) {
   );
 }
 
-const CardWrapper = styled.div`
+export const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 150px;
@@ -41,7 +41,7 @@ const CardWrapper = styled.div`
   }
 `;
 
-const Image = styled.img`
+export const Image = styled.img`
   padding: 0.5rem;
 `;
 

@@ -26,3 +26,11 @@ export const createPokemon = async (numOfPokemon: number) => {
 export const capitalizeFirstLetter = (str: string) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
+
+export const getArrIndexes = (num: number) => {
+  const arr: number[] = [];
+  for (let i = 0; i < num; i++) {
+    arr.push(i);
+  }
+  return arr;
+};

@@ -22,7 +22,7 @@ export default function Gameboard({ pokemonList, handleClick }: Props) {
   return <Container>{pokemonElements}</Container>;
 }
 
-const Container = styled.div`
+export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
