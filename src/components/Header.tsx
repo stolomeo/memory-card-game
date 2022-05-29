@@ -3,7 +3,7 @@ import styled from "styled-components";
 type Props = {};
 
 export default function Header({}: Props) {
-  return <Text>PokeMemory</Text>;
+  return <Text>Pokemon Memory</Text>;
 }
 
 const Text = styled.h1`
