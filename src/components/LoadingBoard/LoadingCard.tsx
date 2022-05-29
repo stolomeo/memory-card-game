@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { CardWrapper, Image } from "./components/Gameboard/Card";
+import { CardWrapper, Image } from "../Gameboard/Card";
 
 export default function LoadingCard() {
   return (

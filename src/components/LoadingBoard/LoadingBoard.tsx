@@ -1,6 +1,6 @@
-import { Container } from "./components/Gameboard/Gameboard";
+import { Container } from "../Gameboard/Gameboard";
+import { getArrIndexes } from "../../utils";
 import LoadingCard from "./LoadingCard";
-import { getArrIndexes } from "./utils";
 
 export default function LoadingBoard() {
   const pokeIndexs = getArrIndexes(12);

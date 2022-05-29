@@ -6,7 +6,7 @@ import { shuffleArray } from "../utils";
 import { MouseEvent } from "react";
 import Scoreboard from "./Scoreboard/";
 import Confetti from "react-confetti";
-import LoadingBoard from "../LoadingBoard";
+import LoadingBoard from "./LoadingBoard/";
 
 export default function Main() {
   const [pokemon, setPokemon] = useState([{}]);
