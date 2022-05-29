@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { MouseEvent } from "react";
 import { capitalizeFirstLetter } from "../../utils";
+import { Box, CircularProgress } from "@mui/material";
 
 type Sprite = {
   [key: string]: any;

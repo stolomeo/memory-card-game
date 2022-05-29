@@ -7,7 +7,7 @@ type Props = {
   handleClick: (e: MouseEvent) => void;
 };
 
-export default function CardContainer({ pokemonList, handleClick }: Props) {
+export default function Gameboard({ pokemonList, handleClick }: Props) {
   const pokemonElements = pokemonList.map((pokemon) => {
     return (
       <Card

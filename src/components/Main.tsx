@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import CardContainer from "./Gameboard/";
+import Gameboard from "./Gameboard/";
 import Header from "./Header";
 import { createPokemon } from "../utils";
 import { shuffleArray } from "../utils";
 import { MouseEvent } from "react";
 import Scoreboard from "./Scoreboard/";
+import Confetti from "react-confetti";
 
 export default function Main() {
   const [pokemon, setPokemon] = useState([{}]);
@@ -13,7 +14,7 @@ export default function Main() {
   const [pokemonSelected, setPokemonSelected] = useState<string[]>([""]);
   const [currentScore, setCurrentScore] = useState<number>(0);
   const [bestScore, setBestScore] = useState<number>(0);
-  const [gameOver, setGameOver] = useState<boolean>(false);
+  const [hasWon, setHasWon] = useState<boolean>(false);
 
   useEffect(() => {
     (async () => {
@@ -30,14 +31,13 @@ export default function Main() {
       if (newScore > bestScore) setBestScore(newScore);
       setCurrentScore((prevScore) => prevScore + 1);
       setPokemonSelected([...pokemonSelected, id]);
-      setGameOver(false);
     }
   };
 
   const resetGame = () => {
     setPokemonSelected([""]);
-    setCurrentScore(0);
-    setGameOver(true);
+    setCurrentScore(7);
+    setHasWon(false);
   };
 
   const handleClick = async (e: MouseEvent) => {
@@ -46,14 +46,20 @@ export default function Main() {
     setPokemon(shuffleArray(pokemon));
   };
 
+  useEffect(() => {
+    if (currentScore === 8) {
+      setHasWon(true);
+    }
+  }, [currentScore]);
+
   return (
     <>
-      <Header />
+      {hasWon && <Confetti />}
       <Scoreboard currentScore={currentScore} bestScore={bestScore} />
       <MainWrapper>
         {isLoading && <h1>Loading..</h1>}
         {!isLoading && (
-          <CardContainer pokemonList={pokemon} handleClick={handleClick} />
+          <Gameboard pokemonList={pokemon} handleClick={handleClick} />
         )}
       </MainWrapper>
     </>
