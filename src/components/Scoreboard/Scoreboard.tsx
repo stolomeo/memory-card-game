@@ -32,6 +32,10 @@ const Score = styled.div`
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
 
-const CurrentScore = styled(Score)``;
+const CurrentScore = styled(Score)`
+  background-color: #ff6464;
+`;
 
-const BestScore = styled(Score)``;
+const BestScore = styled(Score)`
+  background-color: aquamarine;
+`;

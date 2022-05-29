@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Gameboard from "./Gameboard/";
-import Header from "./Header";
 import { createPokemon } from "../utils";
 import { shuffleArray } from "../utils";
 import { MouseEvent } from "react";
@@ -36,7 +35,7 @@ export default function Main() {
 
   const resetGame = () => {
     setPokemonSelected([""]);
-    setCurrentScore(7);
+    setCurrentScore(0);
     setHasWon(false);
   };
 

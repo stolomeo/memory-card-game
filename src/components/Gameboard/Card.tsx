@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { MouseEvent } from "react";
 import { capitalizeFirstLetter } from "../../utils";
-import { Box, CircularProgress } from "@mui/material";
 
 type Sprite = {
   [key: string]: any;
@@ -32,7 +31,7 @@ const CardWrapper = styled.div`
   flex-direction: column;
   width: 150px;
   border-radius: 20px;
-  background-color: #ffffff;
+  background-color: #eee;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transition: all 0.2s ease-in-out;
   &:hover {
