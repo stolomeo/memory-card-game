@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/pokemon-memory/static/js/main.f742d816.js",
+    "index.html": "/pokemon-memory/index.html",
+    "main.f742d816.js.map": "/pokemon-memory/static/js/main.f742d816.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.f742d816.js"
+  ]
+}
