@@ -19,13 +19,13 @@ const ScoreboardWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 3rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
 `;
 
 const Score = styled.div`
   padding: 0.5rem;
-  width: 20%;
-  font-size: 2rem;
+  width: 15%;
+  font-size: 1.8rem;
   border-radius: 20px;
   font-weight: 700;
   text-align: center;
