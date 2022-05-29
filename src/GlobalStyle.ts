@@ -15,8 +15,14 @@ html {
 body {
   font-weight: normal;
   font-family: 'Nunito', sans-serif;
-  background-color: #eee;
+  background: linear-gradient(rgba(255, 255, 255, 0.4),
+              rgba(255, 255, 255, 0.4),
+              rgba(255, 255, 255, 0.4),
+              rgba(255, 255, 255, 0.4)),
+              url("https://images.unsplash.com/photo-1638613067237-b1127ef06c00?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80") top left / cover no-repeat;
+              
 }
+
 
 ol, ul {
   list-style: none;
