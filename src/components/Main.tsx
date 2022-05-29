@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Gameboard from "./Gameboard/";
-import { createPokemon } from "../utils";
-import { shuffleArray } from "../utils";
-import { MouseEvent } from "react";
 import Scoreboard from "./Scoreboard/";
 import Confetti from "react-confetti";
 import LoadingBoard from "./LoadingBoard/";
+import { useEffect, useState } from "react";
+import { createPokemon } from "../utils";
+import { shuffleArray } from "../utils";
+import { MouseEvent } from "react";
 
 export default function Main() {
   const [pokemon, setPokemon] = useState([{}]);

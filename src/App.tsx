@@ -1,7 +1,7 @@
-import Footer from "./components/Footer";
+import GlobalStyle from "./GlobalStyle";
 import Header from "./components/Header";
 import Main from "./components/Main";
-import GlobalStyle from "./GlobalStyle";
+import Footer from "./components/Footer";
 
 function App() {
   return (

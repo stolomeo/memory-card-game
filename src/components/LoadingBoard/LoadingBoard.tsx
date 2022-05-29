@@ -1,6 +1,6 @@
+import LoadingCard from "./LoadingCard";
 import { Container } from "../Gameboard/Gameboard";
 import { getArrIndexes } from "../../utils";
-import LoadingCard from "./LoadingCard";
 
 export default function LoadingBoard() {
   const pokeIndexs = getArrIndexes(12);
