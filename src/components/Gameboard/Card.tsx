@@ -29,7 +29,7 @@ export default function Card({ id, name, sprites, handleClick }: Props) {
 export const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 130px;
+  width: 110px;
   border-radius: 20px;
   background-color: #eee;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -42,11 +42,9 @@ export const CardWrapper = styled.div`
   }
 `;
 
-export const Image = styled.img`
-  padding: 0.5rem;
-`;
+export const Image = styled.img``;
 
 const Text = styled.h2`
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
 `;

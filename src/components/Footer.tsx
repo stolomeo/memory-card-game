@@ -12,7 +12,6 @@ export default function Footer() {
   );
 }
 const FooterWrapper = styled.footer`
-  margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,6 +20,9 @@ const FooterWrapper = styled.footer`
   background-color: #383838;
   color: #eee;
   opacity: 0.9;
+  position: fixed;
+  left: 0;
+  bottom: 0;
 `;
 
 const GithubLink = styled.a`
