@@ -1,36 +1,5 @@
-export const shuffleArray = (arr: {}[]) => {
-  return [...arr].sort(() => Math.random() - 0.5);
-};
-
-const getUrl = (num: number) => {
-  const randomUrl = `https://pokeapi.co/api/v2/pokemon/${num}`;
-  return randomUrl;
-};
-
-const getPokemon = async (num: number) => {
-  const url = getUrl(num);
-  const response = await fetch(url);
-  const { id, name, sprites } = await response.json();
-  return { id, name, sprites };
-};
-
-export const createPokemon = async (numOfPokemon: number) => {
-  const pokemon = [];
-  for (let i = 0; i < numOfPokemon; i++) {
-    pokemon.push(await getPokemon(i + 1));
-  }
-  const shuffledPokemon = shuffleArray(pokemon);
-  return shuffledPokemon;
-};
-
-export const capitalizeFirstLetter = (str: string) => {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-};
-
-export const getArrIndexes = (num: number) => {
-  const arr: number[] = [];
-  for (let i = 0; i < num; i++) {
-    arr.push(i);
-  }
-  return arr;
-};
+export { default as capitalizeFirstLetter } from "./capitalizeFirstLetter";
+export { default as createPokemon } from "./pokemon";
+export { default as getArrIndexes } from "./getArrIndexes";
+export { default as getPokemon } from "./pokemon";
+export { default as shuffleArray } from "./shuffleArray";

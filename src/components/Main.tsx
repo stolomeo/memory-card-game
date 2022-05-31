@@ -4,8 +4,7 @@ import Scoreboard from "./Scoreboard/";
 import Confetti from "react-confetti";
 import LoadingBoard from "./LoadingBoard/";
 import { useEffect, useState } from "react";
-import { createPokemon } from "../utils";
-import { shuffleArray } from "../utils";
+import { createPokemon, shuffleArray } from "../utils";
 import { MouseEvent } from "react";
 
 export default function Main() {
