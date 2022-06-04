@@ -31,14 +31,14 @@ export const CardWrapper = styled.div`
   flex-direction: column;
   width: 110px;
   border-radius: 20px;
-  background-color: #eee;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: ${({ theme }) => theme.colors.light};
+  box-shadow: ${({ theme }) => theme.boxShadows.boxShadow1};
   transition: all 0.2s ease-in-out;
   padding: 0.5rem;
   &:hover {
     transform: scale(1.1);
     cursor: pointer;
-    background-color: #efeaead4;
+    background-color: ${({ theme }) => theme.colors.lightHover};
   }
 `;
 

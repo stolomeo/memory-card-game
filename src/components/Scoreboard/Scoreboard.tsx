@@ -8,8 +8,8 @@ type Props = {
 export default function Scoreboard({ currentScore, bestScore }: Props) {
   return (
     <ScoreboardWrapper>
-      <CurrentScore>Current Score: {currentScore}</CurrentScore>
-      <BestScore>Best Score: {bestScore}</BestScore>
+      <ScoreButton bgCol="#ff6464">Current Score: {currentScore}</ScoreButton>
+      <ScoreButton bgCol="aquamarine">Best Score: {bestScore}</ScoreButton>
     </ScoreboardWrapper>
   );
 }
@@ -22,20 +22,13 @@ const ScoreboardWrapper = styled.div`
   margin-top: 0.7rem;
 `;
 
-const Score = styled.div`
+const ScoreButton = styled.div<{ bgCol: string }>`
+  background-color: ${(props) => props.bgCol};
   padding: 0.4rem;
   width: 15%;
   font-size: 1.5rem;
   border-radius: 20px;
   font-weight: 700;
   text-align: center;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-`;
-
-const CurrentScore = styled(Score)`
-  background-color: #ff6464;
-`;
-
-const BestScore = styled(Score)`
-  background-color: aquamarine;
+  box-shadow: ${({ theme }) => theme.boxShadows.boxShadow1};
 `;

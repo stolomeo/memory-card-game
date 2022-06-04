@@ -17,8 +17,8 @@ const FooterWrapper = styled.footer`
   justify-content: center;
   width: 100%;
   padding: 0.5rem;
-  background-color: #383838;
-  color: #eee;
+  background-color: ${({ theme }) => theme.colors.dark};
+  color: ${({ theme }) => theme.colors.light};
   opacity: 0.9;
   position: fixed;
   left: 0;
@@ -29,12 +29,12 @@ const GithubLink = styled.a`
   display: flex;
   padding-bottom: 0.3rem;
   margin-left: 0.7rem;
-  color: #eee;
+  color: ${({ theme }) => theme.colors.light};
   font-size: 1.8rem;
   &:hover {
-    color: #ccc;
+    color: ${({ theme }) => theme.colors.darkHover};
   }
   &:active {
-    color: #aaa;
+    color: ${({ theme }) => theme.colors.darkActive};
   }
 `;
