@@ -20,4 +20,3 @@ npm start
 - [react-icons](https://react-icons.github.io/react-icons/)
 - [styled-components](https://www.npmjs.com/package/styled-components)
 - [PokeAPI](https://pokeapi.co/)
-- [Font Meme](https://fontmeme.com/pokemon-font/)
